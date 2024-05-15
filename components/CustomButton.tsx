@@ -1,7 +1,16 @@
-import React from "react";
+"use client";
+
+import Image from "next/image";
 
 const CustomButton = () => {
-  return <div>CustomButton</div>;
+  return (
+    <button
+      disabled={false}
+      type={"button"}
+      className={"custom-btn"}
+      onClick={() => {}}
+    ></button>
+  );
 };
 
 export default CustomButton;
