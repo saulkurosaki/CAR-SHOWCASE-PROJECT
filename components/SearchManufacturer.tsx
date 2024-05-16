@@ -11,7 +11,7 @@ import {
 } from "@headlessui/react";
 
 import { SearchManufacturerProps } from "@/types";
-// import { manufacturers } from "@/constants";
+import { manufacturers } from "@/constants";
 
 const SearchManufacturer = ({
   manufacturer,
@@ -19,9 +19,15 @@ const SearchManufacturer = ({
 }: SearchManufacturerProps) => {
   const [query, setQuery] = useState("");
 
-  //   const filteredManufacturers = query === '' ? manufacturers : manufacturers.filter((item) => (
-  //     item.toLowerCase().replace(/\s+/g, '').includes(query.toLowerCase().replace(/\s+/g, ''))
-  //   ))
+  const filteredManufacturers =
+    query === ""
+      ? manufacturers
+      : manufacturers.filter((item) =>
+          item
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .includes(query.toLowerCase().replace(/\s+/g, ""))
+        );
 
   return (
     <div className="search-manufacturer">
