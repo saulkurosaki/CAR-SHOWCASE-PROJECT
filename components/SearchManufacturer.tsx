@@ -7,6 +7,7 @@ import {
   ComboboxButton,
   ComboboxInput,
   ComboboxOption,
+  ComboboxOptions,
   Transition,
 } from "@headlessui/react";
 
@@ -57,9 +58,16 @@ const SearchManufacturer = ({
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}
           >
-            {/* <ComboboxOption>
-
-            </ComboboxOption> */}
+            <ComboboxOptions>
+              {filteredManufacturers.length === 0 && query !== "" && (
+                <ComboboxOption
+                  value={query}
+                  className="search-manufacturer__option"
+                >
+                  Create "{query}"
+                </ComboboxOption>
+              )}
+            </ComboboxOptions>
           </Transition>
         </div>
       </Combobox>
