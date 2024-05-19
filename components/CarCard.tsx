@@ -39,6 +39,8 @@ const CarCard = ({ car }: CarCardProps) => {
           className="object-contain"
         />
       </div>
+
+      <div className="relative flex w-full mt-2"></div>
     </div>
   );
 };
