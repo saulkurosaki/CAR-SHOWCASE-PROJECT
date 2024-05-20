@@ -15,6 +15,19 @@ import { CustomFilterProps } from "@/types";
 
 const CustomFilter = ({ title, options }: CustomFilterProps) => {
   const [selected, setSelected] = useState(options[0]);
+  const router = useRouter();
+
+  const handleUpdateParams = (type: string, value: string) => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    searchParams.set(type, value);
+
+    const newPathname = `${
+      window.location.pathname
+    }?${searchParams.toString()}`;
+
+    router.push(newPathname);
+  };
 
   return (
     <div className="w-fit">
@@ -47,7 +60,15 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
                     }`
                   }
                 >
-                  {({ selected }) => <span>{option.title}</span>}
+                  {({ selected }) => (
+                    <span
+                      className={`block truncate ${
+                        selected ? "font-medium" : "font-normal"
+                      }`}
+                    >
+                      {option.title}
+                    </span>
+                  )}
                 </ListboxOption>
               ))}
             </ListboxOptions>
