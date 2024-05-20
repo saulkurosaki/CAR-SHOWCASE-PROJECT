@@ -23,15 +23,15 @@ const SearchBar = () => {
   const [model, setModel] = useState("");
   const router = useRouter();
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  //   if (manufacturer === "" && model === "") {
-  //     return alert("Please fill in the search bar");
-  //   }
+    if (manufacturer === "" && model === "") {
+      return alert("Please fill in the search bar");
+    }
 
-  //   updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
-  // };
+    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+  };
 
   const updateSearchParams = (model: string, manufacturer: string) => {
     const searchParams = new URLSearchParams(window.location.search);
